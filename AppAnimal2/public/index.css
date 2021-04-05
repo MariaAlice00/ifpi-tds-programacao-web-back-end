@@ -1,0 +1,15 @@
+body {
+    background: rgb(209, 204, 209);
+    color: rgb(59, 10, 59);
+}
+
+#item{
+    background-color: #f3d3f0; 
+    border:5px solid rgb(136, 34, 136); 
+    border-radius: 15px;
+    width: 270px;
+    margin: 15px;
+    padding: 5px 5px;
+    text-align:center;
+    font-size: 20px;
+}
