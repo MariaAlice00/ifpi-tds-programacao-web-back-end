@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware # CORS (explicação no final do código)
 from typing import List, Optional
 from pydantic import BaseModel
 from uuid import uuid4
 
 app = FastAPI()
 
-origins = ['http://localhost:5500']
+origins = ['http://localhost:5500'] # lista de origens que devem ser permitidas para fazer solicitações de origem cruzada
 
 app.add_middleware(
     CORSMiddleware,
@@ -60,3 +60,7 @@ def apagar_animal(id: str):
         return {'mensagem': 'Animal removido com sucesso!'}
     else:
         return {'erro': 'Animal não encontrado.'}
+
+'''
+    CORS ou "Compartilhamento de recursos entre origens" refere-se às situações em que um front-end em execução em um navegador tem código JavaScript que se comunica com um back-end e o back-end está em uma "origem" diferente do front-end.
+'''

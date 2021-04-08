@@ -1,5 +1,5 @@
 async function carregarAnimais(){
-    const response = await axios.get('http://localhost:8000/animais')
+    const response = await axios.get('http://localhost:8000/animais') 
     
     const animais = response.data
 
