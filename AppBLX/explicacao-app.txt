@@ -1,0 +1,34 @@
+APP BLX
+
+Funcionalidades
+  •	Qualquer pessoa poderá anunciar produtos
+  •	Qualquer pessoa poderá fazer pedidos dos produtos anunciados
+  •	Uma pessoa tem:
+    o	Nome
+    o	Telefone whatsapp
+  o	Senha(?)
+  •	Um produto tem:
+    o	Nome
+    o	Detalhamento
+    o	Preço
+    o	Disponível (sim / não)
+    o	Fotos (?)
+  •	Um pedido tem:
+    o	Produto
+    o	Pessoa que está pedindo
+    o	Quantidade
+    o	Local de entrega
+    o	Entrega ou retirada
+    o	Observações (sabor, horário de entrega, troco, etc)
+  •	Cada usuário terá uma lista de pedidos recebidos (minhas vendas) e pedidos feitos (minhas compras)
+  •	O pedido deverá ser aceito pelo vendedor
+  •	O comprador poderá acompanhar seus pedidos:
+    o	Status (feito, aceito)
+
+Arquitetura e Ferramentas
+  •	Python + FastAPI
+  •	Será uma API REST
+  •	Banco de Dados: Postgres e/ou MongoDB (firebase firestore)
+  •	Docker para o Postgres
+  •	MVC
+  •	Domain Driven Design (DDD) e Arquitetura Limpa (Clean Architecture)
