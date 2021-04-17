@@ -32,3 +32,7 @@ Arquitetura e Ferramentas
   •	Docker para o Postgres
   •	MVC
   •	Domain Driven Design (DDD) e Arquitetura Limpa (Clean Architecture)
+
+Informações extras:
+  •	SQLAlchemy = ferramenta que auxilia na conexão com o banco de dados
+  •	Rodar o código -> uvicorn src.server:app --reload --reload-dir=src
