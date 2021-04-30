@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean
+from sqlalchemy import Column, Integer, String
 from src.infra.sqlalchemy.config.database import Base
 
 class Serie(Base):

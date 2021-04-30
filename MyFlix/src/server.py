@@ -14,7 +14,6 @@ app = FastAPI()
 @app.post('/series')
 def criar_serie(serie: Serie, db: Session = Depends(get_db)):
     serie_criada = RepositorioSerie(db).criar(serie)
-
     return serie_criada
 
 
@@ -25,7 +24,7 @@ def listar_series(db: Session = Depends(get_db)):
 
 
 @app.get('/series/{id}')
-def listar_id(id: str, db: Session = Depends(get_db)):
+def listar_id(id: int, db: Session = Depends(get_db)):
     series_id = RepositorioSerie(db).exibir_id(id)
     return series_id
     # se o id não existe, retorna null
@@ -38,6 +37,6 @@ def listar_titulo(titulo: str, db: Session = Depends(get_db)):
 
 
 @app.delete('/series/{id}')
-def remover_serie(id: str, db: Session = Depends(get_db)):
+def remover_serie(id: int, db: Session = Depends(get_db)):
     series_removidas = RepositorioSerie(db).remover(id)
     return series_removidas

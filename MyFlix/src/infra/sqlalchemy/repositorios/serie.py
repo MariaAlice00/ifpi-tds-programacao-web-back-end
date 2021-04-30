@@ -11,20 +11,24 @@ class RepositorioSerie():
     def criar(self, serie: schemas.Serie):
         db_serie = models.Serie(titulo=serie.titulo, ano=serie.ano, genero=serie.genero, qtd_temporadas=serie.qtd_temporadas)
 
-
         self.db.add(db_serie)
         self.db.commit()
         self.db.refresh(db_serie)
+
         return db_serie
 
 
     def listar(self):
         series = self.db.query(models.Serie).all() # query: consultar
+
         return series
 
 
     def exibir_id(self, id):
         lista_id = self.db.query(models.Serie).filter(models.Serie.id == id).first()
+        '''stmt = select(model.Serie).filter_by(id=id)
+           serie = self.db.execute(stmt).one()'''
+        
         return lista_id
 
 
