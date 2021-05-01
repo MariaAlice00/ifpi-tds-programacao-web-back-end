@@ -22,9 +22,30 @@ class RepositorioProduto():
         return produtos
 
 
-    def obter(self):
-        pass
+    def obter(self, id):
+        produtos_id = self.db.query(models.Produto).filter(models.Produto.id == id).first()
+        return produtos_id
 
 
     def remover(self):
         pass
+
+
+
+class RepositorioUsuario():
+    def __init__(self, db: Session): # db do tipo Session
+        self.db = db
+
+    #id, nome, telefone
+    def criar(self, usuario: schemas.Usuario):
+        db_usuario = models.Produto(nome=usuario.nome, telefone=usuario.telefone)
+
+        self.db.add(db_usuario)
+        self.db.commit()
+        self.db.refresh(db_usuario)
+        return db_usuario
+
+
+    def listar(self):
+        usuarios = self.db.query(models.Usuario).all() # query: consultar
+        return usuarios
