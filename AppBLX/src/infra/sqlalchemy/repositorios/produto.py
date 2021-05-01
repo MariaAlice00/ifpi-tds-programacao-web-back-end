@@ -9,7 +9,7 @@ class RepositorioProduto():
 
 
     def criar(self, produto: schemas.Produto):
-        db_produto = models.Produto(nome=produto.nome, detalhes=produto.detalhes, preco=produto.preco, disponivel=produto.disponivel)
+        db_produto = models.Produto(nome=produto.nome, detalhes=produto.detalhes, preco=produto.preco, disponivel=produto.disponivel, tamanhos=produto.tamanhos, usuario_id=produto.usuario_id)
 
         self.db.add(db_produto)
         self.db.commit()

@@ -7,6 +7,11 @@ class Usuario(BaseModel):
     nome: str
     telefone: str
     #produtos: List[produtos] = []
+    tamanhos: str
+    usuario_id: str
+
+    class Config:
+        orm_mode = True
 
 
 class Produto(BaseModel):
