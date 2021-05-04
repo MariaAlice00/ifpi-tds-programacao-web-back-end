@@ -5,7 +5,6 @@ from src.infra.sqlalchemy.models import models
 
 
 class RepositorioUsuario():
-
     def __init__(self, db: Session):
         self.db = db
 
