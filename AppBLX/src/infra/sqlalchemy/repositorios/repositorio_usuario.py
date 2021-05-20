@@ -5,8 +5,8 @@ from src.infra.sqlalchemy.models import models
 
 
 class RepositorioUsuario():
-    def __init__(self, db: Session):
-        self.db = db
+    def __init__(self, session: Session):
+        self.session = session
 
     
     def criar(self, usuario: schemas.Usuario):
@@ -14,16 +14,16 @@ class RepositorioUsuario():
                                     senha=usuario.senha, 
                                     telefone=usuario.telefone)
 
-        self.db.add(db_usuario)
-        self.db.commit()
-        self.db.refresh(db_usuario)
+        self.session.add(db_usuario)
+        self.session.commit()
+        self.session.refresh(db_usuario)
 
         return db_usuario
 
     
     def listar(self):
         stmt = select(models.Usuario)
-        usuarios = self.db.execute(stmt).scalars().all()
+        usuarios = self.session.execute(stmt).scalars().all()
         #usuarios = self.db.query(models.Usuario).all()
 
         return usuarios
