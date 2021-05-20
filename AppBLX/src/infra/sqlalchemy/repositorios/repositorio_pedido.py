@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from typing import List
 from sqlalchemy import select
+from sqlalchemy.sql.functions import mode
 from src.schemas import schemas
 from src.infra.sqlalchemy.models import models
 
@@ -42,7 +43,7 @@ class RepositorioPedido():
 
 
     def listar_minhas_vendas_por_usuario_id(self, usuario_id: int):
-        usuario = select(models.Pedido).where(models.Pedido.usuario_id == usuario_id)
+        usuario = select(models.Pedido).join_from(models.Pedido, models.Produto).where(models.Produto.usuario_id == usuario_id)
         minhas_vendas = self.session.execute(usuario).scalars().all()
         return minhas_vendas
 
